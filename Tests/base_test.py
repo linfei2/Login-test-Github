@@ -1,14 +1,13 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import test_data as td
 
 
 class BaseTest(unittest.TestCase):
     def setUp(self):
-        s = Service(ChromeDriverManager().install())
-        self.driver = webdriver.Chrome(service=s)
-        self.driver.get("https://github.com")
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver.get(td.URL)
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 

@@ -1,28 +1,29 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Pages.base_page import BasePage
+import test_data as td
 
 
 class LoginPage(BasePage):
 
-    username_field = (By.ID, "login_field")
-    password_field = (By.ID, "password")
-    submit_btn = (By.NAME, "commit")
-    error_box = (By.XPATH, "//div[@class='container-lg px-2']")
-
     def enter_username(self, username):
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.username_field))\
+        WebDriverWait(self.driver, 10)\
+            .until(EC.presence_of_element_located(td.USERNAME_FIELD))\
             .send_keys(username)
 
     def enter_password(self, password):
-        self.driver.find_element(self.password_field).send_keys(password)
+        self.driver.find_element(*td.PASSWORD_FIELD).send_keys(password)
 
     def submit(self):
-        self.driver.find_element(self.submit_btn).click()
+        self.driver.find_element(*td.SUBMIT_BTN).click()
+
+    def verify_page_title(self, title):
+        assert title == self.driver.title
 
     def verify_error_msg(self, error_msg):
-        msg = self.driver.find_element(self.error_box).get_attribute("innerText")
+        msg = WebDriverWait(self.driver, 10)\
+            .until(EC.visibility_of_element_located, td.ERROR_BOX)\
+            .get_attribute("innerText")
         assert msg == error_msg
 
 

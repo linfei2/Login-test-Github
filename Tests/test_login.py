@@ -1,8 +1,8 @@
-import os
 import unittest
 from Pages.login_page import LoginPage
 from Pages.main_page import MainPage
 from Tests.base_test import BaseTest
+import test_data as td
 
 
 class TestLogin(BaseTest):
@@ -11,12 +11,19 @@ class TestLogin(BaseTest):
         mp = MainPage(self.driver)
         mp.click_sign_in_btn()
         lp = LoginPage(self.driver)
-        username = os.environ.get("LOGIN")
-        password = os.environ.get("PASSWORD")
-        lp.enter_username(username)
-        lp.enter_password(password)
+        lp.enter_username(td.VALID_USERNAME)
+        lp.enter_password(td.VALID_PASSWORD)
         lp.submit()
-        assert "GitHub" in self.driver.title
+        lp.verify_page_title(td.PAGE_TITLE)
+
+    def test_invalid_login(self):
+        mp = MainPage(self.driver)
+        mp.click_sign_in_btn()
+        lp = LoginPage(self.driver)
+        lp.enter_username(td.INVALID_USERNAME)
+        lp.enter_password(td.INVALID_PASSWORD)
+        lp.submit()
+        lp.verify_error_msg(td.ERROR_MSG)
 
 
 if __name__ == "__main__":
