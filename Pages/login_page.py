@@ -5,10 +5,9 @@ import test_data as td
 
 
 class LoginPage(BasePage):
-
     def enter_username(self, username):
-        WebDriverWait(self.driver, 10)\
-            .until(EC.presence_of_element_located(td.USERNAME_FIELD))\
+        WebDriverWait(self.driver, 10) \
+            .until(EC.presence_of_element_located(td.USERNAME_FIELD)) \
             .send_keys(username)
 
     def enter_password(self, password):
@@ -21,11 +20,6 @@ class LoginPage(BasePage):
         assert title == self.driver.title
 
     def verify_error_msg(self, error_msg):
-        msg = WebDriverWait(self.driver, 10)\
-            .until(EC.visibility_of_element_located, td.ERROR_BOX)\
-            .get_attribute("innerText")
+        msg = WebDriverWait(self.driver, 10).\
+            until(lambda s: s.find_element(*td.ERROR_BOX)).get_attribute("innerText")
         assert msg == error_msg
-
-
-
-

@@ -6,7 +6,6 @@ import test_data as td
 
 
 class TestLogin(BaseTest):
-
     def test_valid_login(self):
         mp = MainPage(self.driver)
         mp.click_sign_in_btn()
