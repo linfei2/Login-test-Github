@@ -13,6 +13,13 @@ The most recent version of Chrome browser (determined by WebDriver Manager)
 Ubuntu 20.04.3
 ```
 
+#### Setup
+```
+pip install selenium
+pip install pytest
+pip install webdriver-manager
+```
+
 ## Test Case 1 - Login with valid credentials
 
 #### Steps
@@ -20,7 +27,7 @@ Ubuntu 20.04.3
 1. Open https://github.com/
 2. Click "Sign in"
 3. Enter valid username in the username field
-4. Enter valid passwod in the password field
+4. Enter valid password in the password field
 5. Click "Submit"
 ```
 
