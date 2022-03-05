@@ -16,7 +16,6 @@ Ubuntu 20.04.3
 #### Setup
 ```
 pip install selenium
-pip install pytest
 pip install webdriver-manager
 ```
 
