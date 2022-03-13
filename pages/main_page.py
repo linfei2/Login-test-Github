@@ -1,6 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.base_page import BasePage
+from pages.base_page import BasePage
 import test_data as td
 
 

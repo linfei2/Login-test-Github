@@ -1,7 +1,7 @@
 import unittest
-from Pages.login_page import LoginPage
-from Pages.main_page import MainPage
-from Tests.base_test import BaseTest
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
+from tests.base_test import BaseTest
 import test_data as td
 
 
