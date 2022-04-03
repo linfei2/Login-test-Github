@@ -6,4 +6,6 @@ import test_data as td
 
 class MainPage(BasePage):
     def click_sign_in_btn(self):
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(td.SIGN_IN_BTN)).click()
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(td.SIGN_IN_BTN)
+        ).click()

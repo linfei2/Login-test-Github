@@ -8,7 +8,7 @@ SIGN_IN_BTN = (By.XPATH, "//a[@href='/login']")
 USERNAME_FIELD = (By.ID, "login_field")
 PASSWORD_FIELD = (By.ID, "password")
 SUBMIT_BTN = (By.NAME, "commit")
-ERROR_BOX = (By.XPATH, "//div[@class='container-lg px-2']")
+ERROR_BOX = (By.XPATH, "//div[@class='px-2']")
 
 # Inputs
 URL = "https://github.com"
